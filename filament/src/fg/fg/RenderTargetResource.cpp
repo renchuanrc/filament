@@ -47,6 +47,7 @@ void RenderTargetResource::create(FrameGraph& fg) noexcept {
                     infos[i].handle = entry.getResource().texture;
                     infos[i].level = attachmentInfo.getLevel();
                     assert(infos[i].handle);
+                    assert(infos[i].level < entry.descriptor.levels);
                 }
             }
             targetInfo.target = fg.getResourceAllocator().createRenderTarget(name,
